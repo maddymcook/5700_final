@@ -30,7 +30,7 @@
 <!-- End Page Title -->
 
 <!-- About Us Section -->
-<%- include('./partials/about-section', { aboutImage: aboutImage }) %>
+<%- include('./partials/about-section', { aboutImage: '/img/about-2.jpg' }) %>
 <!-- End About Us Section -->
 
 <!-- Counts Section -->
@@ -48,69 +48,65 @@
   <!-- End Section Title -->
 
   <div class="container" data-aos="fade-up" data-aos-delay="100">
-    <% if (testimonials && testimonials.length > 0) { %>
-      <div class="swiper init-swiper">
-        <script type="application/json" class="swiper-config">
-          {
-            "loop": true,
-            "speed": 600,
-            "autoplay": {
-              "delay": 5000
+    <div class="swiper init-swiper">
+      <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": {
+            "delay": 5000
+          },
+          "slidesPerView": "auto",
+          "pagination": {
+            "el": ".swiper-pagination",
+            "type": "bullets",
+            "clickable": true
+          },
+          "breakpoints": {
+            "320": {
+              "slidesPerView": 1,
+              "spaceBetween": 40
             },
-            "slidesPerView": "auto",
-            "pagination": {
-              "el": ".swiper-pagination",
-              "type": "bullets",
-              "clickable": true
-            },
-            "breakpoints": {
-              "320": {
-                "slidesPerView": 1,
-                "spaceBetween": 40
-              },
-              "1200": {
-                "slidesPerView": 2,
-                "spaceBetween": 20
-              }
+            "1200": {
+              "slidesPerView": 2,
+              "spaceBetween": 20
             }
           }
-        </script>
-        <div class="swiper-wrapper">
-          <% testimonials.forEach(testimonial => { %>
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img
-                    src="assets/img/testimonials/<%= testimonial.image %>"
-                    class="testimonial-img"
-                    alt="<%= testimonial.name %>"
-                  />
-                  <h3><%= testimonial.name %></h3>
-                  <h4><%= testimonial.title %></h4>
-                  <div class="stars">
-                    <% for(let i = 0; i < testimonial.rating; i++) { %>
-                      <i class="bi bi-star-fill"></i>
-                    <% } %>
-                    <% for(let i = 0; i < (5 - testimonial.rating); i++) { %>
-                      <i class="bi bi-star"></i>
-                    <% } %>
-                  </div>
-                  <p>
-                    <i class="bi bi-quote quote-icon-left"></i>
-                    <span><%= testimonial.testimonial %></span>
-                    <i class="bi bi-quote quote-icon-right"></i>
-                  </p>
-                </div>
+        }
+      </script>
+      <div class="swiper-wrapper">
+        <% testimonials.forEach(testimonial => { %>
+        <div class="swiper-slide">
+          <div class="testimonial-wrap">
+            <div class="testimonial-item">
+              <img
+                src="assets/img/testimonials/<%= testimonial.image %>"
+                class="testimonial-img"
+                alt="<%= testimonial.name %>"
+              />
+              <h3><%= testimonial.name %></h3>
+              <h4><%= testimonial.title %></h4>
+              <div class="stars">
+                <% for(let i = 0; i < testimonial.rating; i++) { %>
+                <i class="bi bi-star-fill"></i>
+                <% } %> <% for(let i = 0; i < (5 - testimonial.rating); i++) {
+                %>
+                <i class="bi bi-star"></i>
+                <% } %>
               </div>
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                <span><%= testimonial.testimonial %></span>
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
             </div>
-          <% }); %>
+          </div>
         </div>
-        <div class="swiper-pagination"></div>
+        <!-- End testimonial item -->
+        <% }); %>
       </div>
-    <% } else { %>
-      <p class="text-center">No testimonials to show yet.</p>
-    <% } %>
+      <div class="swiper-pagination"></div>
+    </div>
   </div>
 </section>
 <!-- End Testimonials Section -->
-
