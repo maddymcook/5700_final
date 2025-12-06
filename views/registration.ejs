@@ -1,0 +1,32 @@
+<h1><%= pageTitle %></h1>
+
+<form action="/courses/register" method="POST">
+  <div>
+    <label>First Name</label>
+    <input type="text" value="<%= user.firstName %>" readonly />
+  </div>
+
+  <div>
+    <label>Last Name</label>
+    <input type="text" value="<%= user.lastName %>" readonly />
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input type="email" value="<%= user.email %>" readonly />
+  </div>
+
+  <div>
+    <label>Course</label>
+    <select name="courseId">
+      <% courses.forEach(course => { %>
+        <option value="<%= course._id %>"
+          <%= (selectedCourseId && selectedCourseId.toString() === course._id.toString()) ? "selected" : "" %>>
+          <%= course.title %>
+        </option>
+      <% }) %>
+    </select>
+  </div>
+
+  <button type="submit">Register</button>
+</form>

@@ -1,0 +1,43 @@
+<!-- registration-success.ejs -->
+
+<div class="page-title" data-aos="fade">
+    <div class="heading">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1>Registration Successful</h1>
+            <p class="mb-0">
+              You have successfully registered for <strong><%= course.title %></strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/courses">Courses</a></li>
+          <li class="current">Registration Successful</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
+  
+  <section class="section">
+    <div class="container" data-aos="fade-up">
+      <p>
+        Hi <strong><%= user.firstName %></strong>, you’re now registered for
+        <strong><%= course.title %></strong>.
+      </p>
+  
+      <a href="/courses/<%= course.slug %>" class="btn btn-primary me-2">
+        Go to Course Details
+      </a>
+  
+      <a href="/courses" class="btn btn-outline-secondary">
+        Back to All Courses
+      </a>
+    </div>
+  </section>
+  

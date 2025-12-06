@@ -1,0 +1,108 @@
+<!-- Page Title -->
+<div class="page-title" data-aos="fade">
+    <div class="heading">
+      <div class="container text-center">
+        <h1>Create Course</h1>
+        <p class="mb-0">
+          Use this form to add a new course to Mentor.
+        </p>
+      </div>
+    </div>
+  
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/courses">Courses</a></li>
+          <li class="current">Create Course</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
+  
+  <section class="section">
+    <div class="container" data-aos="fade-up">
+      <form
+        action="/courses/admin/create"
+        method="POST"
+        enctype="multipart/form-data"
+        class="row g-3"
+      >
+        <div class="col-md-6">
+          <label class="form-label">Title</label>
+          <input type="text" name="title" class="form-control" required />
+        </div>
+  
+        <div class="col-md-6">
+          <label class="form-label">Trainer</label>
+          <select name="trainer" class="form-select" required>
+            <% trainers.forEach(trainer => { %>
+              <option value="<%= trainer._id %>"><%= trainer.name %></option>
+            <% }) %>
+          </select>
+        </div>
+  
+        <div class="col-md-12">
+          <label class="form-label">Summary</label>
+          <input type="text" name="summary" class="form-control" required />
+        </div>
+  
+        <div class="col-md-12">
+          <label class="form-label">Description</label>
+          <textarea
+            name="description"
+            class="form-control"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+  
+        <div class="col-md-4">
+          <label class="form-label">Price</label>
+          <input
+            type="number"
+            name="price"
+            class="form-control"
+            min="0"
+            step="1"
+            required
+          />
+        </div>
+  
+        <div class="col-md-4">
+          <label class="form-label">Capacity</label>
+          <input
+            type="number"
+            name="capacity"
+            class="form-control"
+            min="1"
+            step="1"
+            required
+          />
+        </div>
+  
+        <div class="col-md-4">
+          <label class="form-label">Schedule</label>
+          <input type="text" name="schedule" class="form-control" required />
+        </div>
+  
+        <div class="col-md-12">
+          <label class="form-label">Image</label>
+          <input
+            type="file"
+            name="image"
+            class="form-control"
+            accept="image/*"
+            required
+          />
+        </div>
+  
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">
+            Create Course
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+  

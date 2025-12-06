@@ -1,0 +1,3 @@
+<!--- Write a description of the functionality you implemented for question 9 here.  No special formatting is required; however, if desired you can use the basic markdown syntax (https://www.markdownguide.org/cheat-sheet/) and view the result by right-clicking the file and selecting 'Open Preview'. -->
+
+<!---For Question 9, I added a new feature called “My Courses.” It gives logged-in users a simple page where they can see all the courses they’ve signed up for in one place. I created a new page, a new route, and a little bit of logic that loads the user’s courses from the database and displays them in a clean list. It shows the course info, how many seats are left, and links back to the full course details. -->

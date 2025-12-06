@@ -1,0 +1,29 @@
+<div class="container my-courses-page" style="padding: 40px 20px;">
+    <h1>My Courses</h1>
+  
+    <% if (!courses || courses.length === 0) { %>
+      <p>You’re not registered for any courses yet.</p>
+      <a href="/courses" class="btn btn-primary">Browse Courses</a>
+    <% } else { %>
+      <p>Here are the courses you’re currently registered for:</p>
+  
+      <div class="row">
+        <% courses.forEach(function(course) { %>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title"><%= course.title %></h5>
+                <p class="card-text"><%= course.summary %></p>
+                <p><strong>Schedule:</strong> <%= course.schedule %></p>
+                <p><strong>Available Seats:</strong> <%= course.availableSeats %> <% if (course.isFull) { %>(Full)<% } %></p>
+              </div>
+              <div class="card-footer text-center">
+                <a href="/courses/<%= course.slug %>" class="btn btn-sm btn-outline-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+  

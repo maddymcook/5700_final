@@ -1,0 +1,25 @@
+<div class="container external-api">
+    <h1><%= pageTitle %></h1>
+  
+    <p>
+       Welcome to the doghouse! Enjoy these pics of the cutest doggos from the 
+      <a href="https://dog.ceo/dog-api/" target="_blank" rel="noopener noreferrer">
+        Dog CEO API
+      </a>.
+    </p>
+  
+    <% if (errorMessage) { %>
+      <p class="error"><%= errorMessage %></p>
+    <% } %>
+  
+    <% if (dogImageUrl) { %>
+      <div class="dog-image">
+        <img src="<%= dogImageUrl %>" alt="Random dog from external API" />
+      </div>
+    <% } %>
+  
+    <form method="get" action="/externalapi" style="margin-top: 1rem;">
+      <button type="submit">New Dog Please!</button>
+    </form>
+  </div>
+  

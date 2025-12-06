@@ -1,0 +1,154 @@
+<!-- Page Title -->
+<div class="page-title" data-aos="fade">
+    <div class="heading">
+      <div class="container text-center">
+        <h1>Edit Course</h1>
+        <p class="mb-0">
+          Update the details for <strong><%= course.title %></strong>.
+        </p>
+      </div>
+    </div>
+  
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/courses">Courses</a></li>
+          <li class="current">Edit Course</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
+  
+  <section class="section">
+    <div class="container" data-aos="fade-up">
+      <!-- EDIT FORM -->
+      <form
+        action="/courses/<%= course.slug %>/edit"
+        method="POST"
+        enctype="multipart/form-data"
+        class="row g-3 mb-4"
+      >
+        <div class="col-md-6">
+          <label class="form-label">Title</label>
+          <input
+            type="text"
+            name="title"
+            class="form-control"
+            value="<%= course.title %>"
+            required
+          />
+        </div>
+  
+        <div class="col-md-6">
+          <label class="form-label">Trainer</label>
+          <select name="trainer" class="form-select" required>
+            <% trainers.forEach(trainer => { %>
+              <option
+                value="<%= trainer._id %>"
+                <%= course.trainer && course.trainer._id.toString() === trainer._id.toString() ? "selected" : "" %>
+              >
+                <%= trainer.name %>
+              </option>
+            <% }) %>
+          </select>
+        </div>
+  
+        <div class="col-md-12">
+          <label class="form-label">Summary</label>
+          <input
+            type="text"
+            name="summary"
+            class="form-control"
+            value="<%= course.summary %>"
+            required
+          />
+        </div>
+  
+        <div class="col-md-12">
+          <label class="form-label">Description</label>
+          <textarea
+            name="description"
+            class="form-control"
+            rows="4"
+            required
+          ><%= course.description %></textarea>
+        </div>
+  
+        <div class="col-md-4">
+          <label class="form-label">Price</label>
+          <input
+            type="number"
+            name="price"
+            class="form-control"
+            value="<%= course.price %>"
+            min="0"
+            step="1"
+            required
+          />
+        </div>
+  
+        <div class="col-md-4">
+          <label class="form-label">Capacity</label>
+          <input
+            type="number"
+            name="capacity"
+            class="form-control"
+            value="<%= course.capacity %>"
+            min="1"
+            step="1"
+            required
+          />
+        </div>
+  
+        <div class="col-md-4">
+          <label class="form-label">Schedule</label>
+          <input
+            type="text"
+            name="schedule"
+            class="form-control"
+            value="<%= course.schedule %>"
+            required
+          />
+        </div>
+  
+        <div class="col-md-12">
+          <label class="form-label">Current Image</label><br />
+          <img
+            src="/assets/img/<%= course.image %>"
+            alt="<%= course.title %>"
+            class="img-fluid mb-2"
+            style="max-width: 300px;"
+          />
+        </div>
+  
+        <div class="col-md-12">
+          <label class="form-label">Change Image (optional)</label>
+          <input
+            type="file"
+            name="image"
+            class="form-control"
+            accept="image/*"
+          />
+        </div>
+  
+        <div class="col-12 d-flex gap-2">
+          <button type="submit" class="btn btn-primary">
+            Save Changes
+          </button>
+        </div>
+      </form>
+  
+      <!-- DELETE FORM -->
+      <form
+        action="/courses/<%= course.slug %>/delete"
+        method="POST"
+        onsubmit="return confirm('Are you sure you want to delete this course?');"
+      >
+        <button type="submit" class="btn btn-danger">
+          Delete Course
+        </button>
+      </form>
+    </div>
+  </section>
+  

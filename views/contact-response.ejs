@@ -1,0 +1,63 @@
+<!-- Page Title -->
+<div class="page-title" data-aos="fade">
+    <div class="heading">
+      <div class="container text-center">
+        <h1>Respond to Contact</h1>
+        <p class="mb-0">
+          Send a response to <strong><%= contact.name %></strong>.
+        </p>
+      </div>
+    </div>
+  
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/contacts/admin/respond">Contact Requests</a></li>
+          <li class="current">Respond</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
+  
+  <section class="section">
+    <div class="container" data-aos="fade-up">
+  
+      <div class="mb-4">
+        <h5>Contact Details</h5>
+        <p><strong>Name:</strong> <%= contact.name %></p>
+        <p><strong>Email:</strong> <%= contact.email %></p>
+        <% if (contact.subject) { %>
+          <p><strong>Subject:</strong> <%= contact.subject %></p>
+        <% } %>
+        <p><strong>Message:</strong></p>
+        <p><%= contact.message %></p>
+      </div>
+  
+      <form
+        action="/contacts/admin/respond/<%= contact._id %>"
+        method="POST"
+        class="row g-3"
+      >
+        <div class="col-12">
+          <label class="form-label">Response</label>
+          <textarea
+            name="response"
+            class="form-control"
+            rows="5"
+            required
+          ><%= contact.response || '' %></textarea>
+        </div>
+  
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">
+            Send Response
+          </button>
+          <a href="/contacts/admin/respond" class="btn btn-outline-secondary ms-2">
+            Cancel
+          </a>
+        </div>
+      </form>
+    </div>
+  </section>
+  

@@ -1,0 +1,3 @@
+<!--- Write a description of the external API you implemented for question 7 here.  No special formatting is required; however, if desired you can use the basic markdown syntax (https://www.markdownguide.org/cheat-sheet/) and view the result by right-clicking the file and selecting 'Open Preview'. -->
+
+<!--- For Q7, I added a new page at /externalapi that shows data from a fun third-party API. I used the Dog CEO API (https://dog.ceo/dog-api/), which sends back random dog photos. When someone visits the /externalapi page, my app makes a request to the API, gets a random dog image URL, and displays it in the view. There’s also a button on the page that lets you load a new dog picture whenever you want. I thought it was silly and fun. --> 
