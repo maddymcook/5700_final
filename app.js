@@ -88,4 +88,12 @@ app.use(errorController.get500);
 // DB + start server
 const PORT = process.env.PORT || 3000;
 
-mongo
+mongoose
+  .connect(MONGODB_URI)
+  .then(() => {
+    console.log("Mongoose Connected!");
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  })
+  .catch((error) => {
+    console.error(error);
+  });
